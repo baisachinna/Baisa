@@ -1,0 +1,14 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+    - name: git install
+      apt:
+        name: git
+        update-cache: yes
+        state: present
+    - name: tree install
+      apt:
+        name: tree
+        update-cache: yes
+        state: present
