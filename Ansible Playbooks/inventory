@@ -1,0 +1,8 @@
+[webserver]
+172.31.16.242
+
+[dbserver]
+172.31.30.251
+
+[localhost]
+localhost
