@@ -5,13 +5,13 @@
     package_name: git
   tasks:
     - name: git installation
-      apt:
+      yum:
         name: {{ package_name }}
         update-cache: yes
         state: present
       when: ansible_facts['os_family'] == "CentOS"
     - name: tree install
-      apt:
+      yum:
         name: tree
         update-cache: yes
         state: present
