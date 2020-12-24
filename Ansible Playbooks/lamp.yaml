@@ -1,3 +1,27 @@
 ---
-hosts: webserver
-become: yes
+- hosts: webserver
+  become: yes
+  tasks:
+    - name: fail for other  platforms
+      fail:
+        msg: This is not supported OS
+      when: - ansible_os_family != "RedHat"
+    - name: install httpd in Redhat
+      yum: 
+        name: httpd
+        state: preset
+    - name: start httpd service in RedHat
+      service:
+        name: httpd
+        enabled: yes
+        state: restarted
+    - name: install php modules
+      yum: 
+        name: "{{ item }}"
+        state: present
+      loop:
+      - php-fpm 
+      - php-mysqlnd 
+      - php-opcache 
+      - php-gd php-xml 
+      - php-mbstring
