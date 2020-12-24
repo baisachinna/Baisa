@@ -27,4 +27,4 @@
         enabled: yes
         state: restarted
       when:
-      - ansible_os_family == "RedHat"
+        - ansible_os_family == "RedHat"
