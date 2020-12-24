@@ -17,12 +17,14 @@ tasks:
   - name: start apache2 service in Debian
     service:
       name: apache2
+      enabled: yes
       state: restarted
     when:
       - ansible_os_family == "Debian"
   - name: start httpd service in RedHat
     service:
       name: httpd
+      enabled: yes
       state: restarted
     when:
       - ansible_os_family == "RedHat"
