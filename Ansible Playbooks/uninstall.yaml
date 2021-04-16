@@ -2,9 +2,21 @@
 - hosts: all
   become: yes
   tasks:
-    - name: uninstall git
+    - name: uninstall git or tree
       yum:
-        name: git
+        name: "{{ item }}"
         state: absent
-      when: ansible_facts['os_family'] == "CentOS" or "Debian"
+      loop:
+      - git
+      - tree
+      when: ansible_facts['os_family'] == "CentOS"
+    - name: uninstall git or tree
+      apt:
+        name: "{{ item }}"
+        state: absent
+      loop:
+      - git
+      - tree
+      when: ansible_facts['os_family'] == "Debian"
+
     
