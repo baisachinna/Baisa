@@ -1,0 +1,10 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+    - name: uninstall git
+      yum:
+        name: git
+        state: absent
+      when: ansible_facts['os_family'] == "CentOS" & "Debian"
+    
