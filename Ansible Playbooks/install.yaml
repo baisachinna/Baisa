@@ -1,0 +1,20 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+    - name: install git or tree
+      yum:
+        name: "{{ item }}"
+        state: present
+      loop:
+      - git
+      - tree
+      when: ansible_facts['os_family'] == "CentOS"
+    - name: install git or tree
+      apt:
+        name: "{{ item }}"
+        state: present
+      loop:
+      - git
+      - tree
+      when: ansible_facts['os_family'] == "Debian"
