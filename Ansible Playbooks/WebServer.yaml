@@ -3,15 +3,13 @@
   become: yes
   tasks:
     - name: install apache
-       package: 
-         name: apache
-         state: present
+      package: 
+        name: httpd
+        state: present
     - name: restart service
-       service:
-         name: httpd
-         enabled: yes
-         state: restarted
-
-    
+      service:
+        name: httpd
+        enabled: yes
+        state: restarted   
 
       
