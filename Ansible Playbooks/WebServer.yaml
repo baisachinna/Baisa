@@ -1,13 +1,16 @@
 ---
-- hosts: Webserver
+- hosts: webserver
   become: yes
   tasks:
     - name: install apache
-      package:
-        name: httpd
-        state: present
-    - name: service start
-      service:
+       package: apache
+       state: present
+    - name: restart service
+       service:
         name: httpd
         enabled: yes
-        state: started
+        state: restarted
+
+    
+
+      
