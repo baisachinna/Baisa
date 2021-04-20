@@ -15,7 +15,7 @@
         - restart of httpd service
       - name: install php modules
         yum:
-         name: {{"item"}}    
+         name: {{ "item" }}    
          state: present
         loop:
         - php
