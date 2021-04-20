@@ -22,10 +22,10 @@
         - pho-pdo
         notify:
         - restart of httpd service
-  handler:
-    - name: restart of httpd service
-      service:
-       name: httpd
-       enabled: yes
-       state: restarted
+  handlers:
+      - name: restart of httpd service
+        service:
+         name: httpd
+         enabled: yes
+         state: restarted
       
