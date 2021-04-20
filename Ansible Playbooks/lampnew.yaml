@@ -2,15 +2,11 @@
 - hosts: webserver
   become: yes
   tasks:
-      - name: fail for other platforms
-        fail: 
-          msg: This is not supported OS
-        when:
-          - ansible_os_family != "RedHat"
       - name: install httpd
         yum:
           name: httpd
           state: present
+          update_cache: yes
         notify:
         - restart of httpd service
       - name: install php modules
@@ -19,7 +15,7 @@
          state: present
         loop:
         - php
-        - pho-pdo
+        - pho-cli
         notify:
         - restart of httpd service
   handlers:
