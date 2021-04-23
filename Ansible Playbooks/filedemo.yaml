@@ -1,0 +1,9 @@
+---
+- hosts: testredhat
+  become: yes
+  tasks:
+    - name: create an empty file
+      file: 
+        path: /home/ansible/readme.txt
+        state: touch 
+
