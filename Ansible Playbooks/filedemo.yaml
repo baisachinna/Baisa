@@ -16,10 +16,10 @@
        path: /home/ansible/testdr
        state: directory
     - name: downloading a file
-      file:
+      get_url:
        url: https://war-jar-files.s3-us-west-2.amazonaws.com/gameoflife.war
        dest: /home/ansible/ansible.war
-       
+
 
 
 
