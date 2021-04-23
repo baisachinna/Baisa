@@ -9,6 +9,11 @@
     - name: create a simlink
       file:
        src: /home/ansible/readme.txt
-       dest: /home/
+       dest: /home/ansible/
        state: link
+    - name: create a directory
+      file:
+       path: /home/ansible/testdr
+       state: directory
+
 
