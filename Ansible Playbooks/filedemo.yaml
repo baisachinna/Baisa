@@ -19,6 +19,11 @@
       get_url:
        url: https://war-jar-files.s3-us-west-2.amazonaws.com/gameoflife.war
        dest: /home/ansible/ansible.war
+    - name: extracting file
+      command: unzip ansible.war arg1
+      args:
+        chdir: /home/ansible/
+       
 
 
 
