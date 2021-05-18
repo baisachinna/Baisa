@@ -4,20 +4,12 @@
   tasks:
     - name: install apache
       package: 
-<<<<<<< HEAD
         name: httpd
-=======
-        name: apache
->>>>>>> 61e5cba563ae96343d71a2710471f33d773bcf64
         state: present
     - name: restart service
       service:
         name: httpd
         enabled: yes
-<<<<<<< HEAD
-        state: restarted   
-=======
         state: restarted
->>>>>>> 61e5cba563ae96343d71a2710471f33d773bcf64
 
       
