@@ -1,0 +1,26 @@
+---
+ - hosts: webserver
+   become: yes
+   tasks:
+    - name: install java
+      yum:
+        name: java-1.8.0-openjdk-devel
+        state: present
+    - name: get tomcat installer
+      get_url:
+        url: https://mirrors.estointernet.in/apache/tomcat/tomcat-9/v9.0.46/bin/apache-tomcat-9.0.46.tar.gz
+        dest: /usr/local/tomcat9.war
+    - name: unzip files
+      command: 
+        cmd: tar -xvf tomcat9.war
+        chdr: /usr/local/
+    - name: setting environment
+      command: 
+        cmd: echo "export CATALINA_HOME="/usr/local/tomcat9"" >> ~/.bashrc
+        cmd: source ~/.bashrc
+    - name: deploy app
+      get_url:
+        url: https://tomcat.apache.org/tomcat-7.0-doc/appdev/sample/sample.war
+        dest: /usr/local/tomcat9/webapps
+    
+      
