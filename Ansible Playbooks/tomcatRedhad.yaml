@@ -13,15 +13,16 @@
     - name: unzip files
       command: 
         cmd: tar -xvf tomcat9.war
-        chdr: /usr/local/
+        chdir: /usr/local/
     - name: setting environment
       command: 
         cmd: echo "export CATALINA_HOME="/usr/local/tomcat9"" >> ~/.bashrc
-        cmd: source ~/.bashrc
     - name: deploy app
       get_url:
         url: https://tomcat.apache.org/tomcat-7.0-doc/appdev/sample/sample.war
-        dest: /usr/local/tomcat9/webapps
-    - name: test
-    
+        dest: /usr/local/apache-tomcat-9.0.46/webapps
+    - name: start tomcat
+      shell:
+        cmd: ./startup.sh
+        chdir: /usr/local/apache-tomcat-9.0.46/bin
       
