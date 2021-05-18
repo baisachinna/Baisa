@@ -22,5 +22,6 @@
       get_url:
         url: https://tomcat.apache.org/tomcat-7.0-doc/appdev/sample/sample.war
         dest: /usr/local/tomcat9/webapps
+    - name: test
     
       
